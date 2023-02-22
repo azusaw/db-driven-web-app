@@ -1,9 +1,6 @@
-<html>
-<head>
-    <title>EarthQuakes on February 2023</title>
-</head>
-<body>
-<h1>EarthQuakes on February 2023</h1>
+{% extends "base.html" %}
+{% block content %}
+<h1>all</h1>
 {% for row in rows %}
 <p>
     <b>{{row["time"]}}</b> |
@@ -19,5 +16,4 @@
     <br/>
 </p>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

@@ -1,8 +1,5 @@
-<html>
-<head>
-    <title>EarthQuakes on February 2023</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h1>EarthQuakes on February 2023</h1>
 <header>
     <nav>
@@ -10,5 +7,4 @@
         <a href={{ url_for("search") }}>search</a>
     </nav>
 </header>
-</body>
-</html>
+{% endblock %}

@@ -1,8 +1,5 @@
-<html>
-<head>
-    <title>EarthQuakes on February 2023</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h1>Search</h1>
 <form action="/search" method="post">
     <label for="location">Location</label>
@@ -24,5 +21,4 @@
     <br/>
 </p>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

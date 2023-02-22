@@ -13,7 +13,7 @@ The following commands have already been installed.
 install dependencies
 
 ```
-pip install Flask gunicorn
+pip install Flask gunicorn flask-bootstrap
 ```
 
 ## Start server

@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request
+from flask_bootstrap import Bootstrap
 import database
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 db = database.Database()
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
 @app.route("/all")
