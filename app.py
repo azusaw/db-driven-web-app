@@ -15,5 +15,12 @@ def all():
     rows = db.select()
     return render_template("all.html", rows=rows)
 
+
+@app.route("/search")
+def search():
+    rows = db.select("where e.mag > 5.0")
+    return render_template("search.html", rows=rows)
+
+
 if __name__ == "__main__":
     app.run(debug=True)

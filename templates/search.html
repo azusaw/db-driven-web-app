@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>EarthQuakes on February 2023</title>
+</head>
+<body>
+<h1>Search</h1>
+{% for row in rows %}
+<p>
+    <b>{{row["time"]}}</b> |
+    {{row["latitude"]}} |
+    {{row["longitude"]}} |
+    {{row['depth']}} |
+    {{row["mag"]}} |
+    {{row["magType"]}} |
+    {{row['place']}} |
+    {{row['type']}} |
+    {{row['status']}} |
+    {{row['name']}}
+    <br/>
+</p>
+{% endfor %}
+</body>
+</html>
