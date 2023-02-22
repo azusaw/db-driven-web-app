@@ -5,7 +5,8 @@
 <body>
 <h1>Search</h1>
 <form action="/search" method="post">
-    <input type="text" name="where">
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location">
     <input type="submit">
 </form>
 {% for row in rows %}

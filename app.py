@@ -18,12 +18,13 @@ def all():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    # "where e.mag > 5.0"
     rows = ""
     if request.method == "POST":
-        rows = db.select(request.form["where"])
+        where = "where " + \
+                "place like '%" + request.form["location"] + "%'" if request.form["location"] else ''
+        rows = db.select(where)
     return render_template("search.html", rows=rows)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8000, debug=True)
