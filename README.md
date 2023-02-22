@@ -1,16 +1,33 @@
 # Earthquake information webapp using Python and Flask
 
-## setup
+## Prerequisites
+
+The following commands have already been installed.
+
+* Python3
+* pip
+* Heroku CLI
+
+## Setup
+
+install dependencies
+
 ```
-# install dependencies
-$ pip install Flask
+pip install Flask gunicorn
 ```
 
-## start server
-```
-# serve with hot reload at localhost:5000
-$ python3 -m flask run
+## Start server
 
-# serve with hot reload at localhost:5000 in Codio
-$ python3 -m flask run -host 0.0.0.0
+```
+python3 app.py
+```
+
+## Deploy to Heroku
+
+create setting files
+
+```
+echo "web: gunicorn app:app --log-file=-" > Procfile
+
+python3 -m pip freeze > requirements.txt
 ```
