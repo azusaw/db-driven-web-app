@@ -16,9 +16,12 @@ def all():
     return render_template("all.html", rows=rows)
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    rows = db.select("where e.mag > 5.0")
+    # "where e.mag > 5.0"
+    rows = ""
+    if request.method == "POST":
+        rows = db.select(request.form["where"])
     return render_template("search.html", rows=rows)
 
 
