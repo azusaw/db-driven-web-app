@@ -48,6 +48,14 @@
             </li>
         </ul>
     </div>
+    {% with messages = get_flashed_messages() %}
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger align-center">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
 {% endblock %}
 
 {% block content %}

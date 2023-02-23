@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_bootstrap import Bootstrap
 
 import database
@@ -6,6 +6,9 @@ import database
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 db = database.Database()
+
+# For flash method requirement
+app.secret_key = 'the random string'
 
 
 @app.route('/')
@@ -50,4 +53,7 @@ def page_not_found(error):
 
 
 if __name__ == "__main__":
-    app.run(port=8000, debug=True)
+    try:
+        app.run(port=8000, debug=True)
+    except Exception as e:
+        flash(f"ERROR: Unexpected error - {e}", "error")
