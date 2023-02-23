@@ -17,7 +17,7 @@ class Database:
         if conditions:
             # Create WHERE clause
             where = "WHERE 1 AND "
-            where += ("e.place LIKE '%" + conditions["location"] + "%' AND ") if conditions["location"] else ''
+            where += ("e.place LIKE '%" + conditions["place"] + "%' AND ") if conditions["place"] else ''
             where += ("e.net = '" + conditions["source"] + "' AND ") if conditions["source"] else ''
             where += ("e.mag >= '" + conditions["min-mag"] + "' AND ") if conditions["min-mag"] else ''
             where += ("e.mag <= '" + conditions["max-mag"] + "' AND ") if conditions["max-mag"] else ''
