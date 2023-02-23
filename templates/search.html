@@ -8,19 +8,7 @@
     </div>
     <input type="submit" class="btn btn-primary" value="Search">
 </form>
-{% for row in rows %}
-<p>
-    <b>{{row["time"]}}</b> |
-    {{row["latitude"]}} |
-    {{row["longitude"]}} |
-    {{row['depth']}} |
-    {{row["mag"]}} |
-    {{row["magType"]}} |
-    {{row['place']}} |
-    {{row['type']}} |
-    {{row['status']}} |
-    {{row['name']}}
-    <br/>
-</p>
-{% endfor %}
+{% with rows = rows %}
+{% include 'earthquake_table.html' %}
+{% endwith %}
 {% endblock %}

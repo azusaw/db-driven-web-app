@@ -1,0 +1,24 @@
+<table class="table align-middle">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">time</th>
+        <th scope="col">Depth</th>
+        <th scope="col">Magnitude</th>
+        <th scope="col">Magnitude Type</th>
+        <th scope="col">Place</th>
+        <th scope="col">Source</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td class="bold">{{row["time"]}}</td>
+        <td>{{row['depth']}}</td>
+        <td>{{row['mag']}}</td>
+        <td>{{row['magType']}}</td>
+        <td>{{row['place']}}</td>
+        <td>{{row['name']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

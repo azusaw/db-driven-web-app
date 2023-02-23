@@ -59,3 +59,7 @@ th {
     color: darkcyan;
     text-align: center;
 }
+
+.bold {
+    font-weight: 600;
+}
