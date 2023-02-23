@@ -29,5 +29,11 @@ def search():
     return render_template("search.html", rows=rows, sources=sources, mag_types=mag_types)
 
 
+@app.route('/magnitude_type')
+def magnitude_type():
+    rows = db.select_mag_types()
+    return render_template("magnitude_type.html", rows=rows)
+
+
 if __name__ == "__main__":
     app.run(port=8000, debug=True)

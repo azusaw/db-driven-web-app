@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>Magnitude Types</h1>
+<table class="table align-middle my-6">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Magnitude Range</th>
+        <th scope="col">Distance Range</th>
+        <th scope="col">Equation</th>
+        <th scope="col">Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td class="bold">{{row["id"]}}</td>
+        <td>{{row['mag_range']}}</td>
+        <td>{{row['distance_range']}}</td>
+        <td>{{row['equation']}}</td>
+        <td>{{row['comments']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

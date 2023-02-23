@@ -1,3 +1,11 @@
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
 .my-1 {
     margin: 5px 0;
 }

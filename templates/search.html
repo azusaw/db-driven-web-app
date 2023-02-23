@@ -36,7 +36,12 @@
         </div>
     </div>
     <div class="col-sm-6 my-4">
-        <label for="mag-type">Magnitude Type</label>
+        <label for="mag-type">
+            Magnitude Type
+            <a target="_blank" href={{ url_for("magnitude_type") }}>
+                <i class="fa-solid fa-circle-info"></i>
+            </a>
+        </label>
         <select id="mag-type" name="mag-type" class="form-control">
             <option value=''>All</option>
             {% for type in mag_types %}
