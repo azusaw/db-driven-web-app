@@ -8,18 +8,18 @@ class Database:
         self.dbname = "./data/earthquake_data.db"
 
     # Execute SELECT query with given conditions
-    def select(self, conditions=[]):
-        print(conditions)
+    def select(self, conditions={}):
         where = ""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
 
         # Create where clause
-        if len(conditions) > 0:
-            where = "WHERE "
+        if conditions:
+            where = "WHERE 1 AND "
             where += ("e.place LIKE '%" + conditions["location"] + "%' AND ") if conditions["location"] else ''
             where += ("e.net = '" + conditions["source"] + "' AND ") if conditions["source"] else ''
+
             # Remove unnecessary 'AND' at the tail
             where = where.removesuffix("AND ")
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
 <h1>Search Data by Conditions</h1>
-<form action="/search" method="post" id="search" class="row g-3">
+<form action="/search" method="post" id="search" class="row">
     <div class="col-sm-6">
         <label for="location">Location</label>
         <input type="text" id="location" name="location" class="form-control" placeholder="Japan / Turkey / Alaska ...">
@@ -15,9 +15,13 @@
             {% endfor %}
         </select>
     </div>
-    <input type="submit" class="btn btn-primary" value="Search">
+    <div class="align-center">
+        <input type="submit" class="btn btn-lg btn-warning my-4" value="Search">
+    </div>
 </form>
+{% if rows %}
 {% with rows = rows %}
 {% include 'earthquake_table.html' %}
 {% endwith %}
+{% endif %}
 {% endblock %}

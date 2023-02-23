@@ -24,8 +24,7 @@ def search():
     rows = ""
     sources = db.select_sources()
     if request.method == "POST":
-        print(request.form)
-        rows = db.select(request.form)
+        rows = db.select(request.form.to_dict(flat=True))
     return render_template("search.html", rows=rows, sources=sources)
 
 
