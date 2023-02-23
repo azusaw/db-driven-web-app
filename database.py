@@ -14,8 +14,8 @@ class Database:
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
 
-        # Create WHERE clause
         if conditions:
+            # Create WHERE clause
             where = "WHERE 1 AND "
             where += ("e.place LIKE '%" + conditions["location"] + "%' AND ") if conditions["location"] else ''
             where += ("e.net = '" + conditions["source"] + "' AND ") if conditions["source"] else ''
@@ -25,6 +25,9 @@ class Database:
 
             # Remove unnecessary "AND " at the tail
             where = where.removesuffix("AND ")
+
+            # Create ORDER BY clause
+            where += (" ORDER BY " + conditions["order"]) if conditions["order"] else ''
 
         cur.execute(
             "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +

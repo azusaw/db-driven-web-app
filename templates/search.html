@@ -15,9 +15,9 @@
             {% endfor %}
         </select>
     </div>
-    <div class="col-sm-6 my-2">
+    <div class="col-sm-6 my-4">
         <div class="row">
-            <div class="col-sm-5 my-2">
+            <div class="col-sm-5">
                 <label for="min-mag">Min Magnitude</label>
                 <select id="min-mag" name="min-mag" class="form-control">
                     {% for i in range(0,8) %}
@@ -25,7 +25,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="col-sm-5 my-2">
+            <div class="col-sm-5">
                 <label for="max-mag">Max Magnitude</label>
                 <select id="max-mag" name="max-mag" class="form-control">
                     {% for i in range(1,9) %}
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 my-2">
+    <div class="col-sm-6 my-4">
         <label for="mag-type">Magnitude Type</label>
         <select id="mag-type" name="mag-type" class="form-control">
             <option value=''>All</option>
@@ -44,8 +44,19 @@
             {% endfor %}
         </select>
     </div>
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <label for="order">Order By</label>
+        <select id="order" name="order" class="form-control">
+            <option value='time asc'>Datetime Asc</option>
+            <option value='time desc'>Datetime Desc</option>
+            <option value='mag asc'>Magnitude Asc</option>
+            <option value='mag desc'>Magnitude Desc</option>
+        </select>
+    </div>
     <div class="align-center">
-        <input type="submit" class="btn btn-lg btn-warning my-2" value="Search">
+        <input type="submit" class="btn btn-lg btn-warning my-6" value="Search">
     </div>
 </form>
 {% if rows %}
