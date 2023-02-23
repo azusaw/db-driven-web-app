@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
+
 import database
 
 app = Flask(__name__)
@@ -21,11 +22,11 @@ def all():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     rows = ""
+    sources = db.select_sources()
     if request.method == "POST":
-        where = "where " + \
-                "place like '%" + request.form["location"] + "%'" if request.form["location"] else ''
-        rows = db.select(where)
-    return render_template("search.html", rows=rows)
+        print(request.form)
+        rows = db.select(request.form)
+    return render_template("search.html", rows=rows, sources=sources)
 
 
 if __name__ == "__main__":
