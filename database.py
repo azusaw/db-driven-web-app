@@ -77,14 +77,14 @@ class Database:
         return map(self.cleansing_data, rows)
 
     # Execute SELECT query to get TOP3 country
-    def select_country_top3(self):
+    def select_country_top5(self):
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
 
         cur.execute(
             "SELECT ROW_NUMBER() OVER(ORDER BY  COUNT(*) DESC) rank, country, COUNT(*) as count " +
-            "FROM earthquakes e GROUP BY e.country ORDER BY COUNT(*) DESC LIMIT 3"
+            "FROM earthquakes e GROUP BY e.country ORDER BY COUNT(*) DESC LIMIT 5"
         )
 
         return cur.fetchall()

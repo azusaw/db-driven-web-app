@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block page_content %}
-<h1>Ranking: Top 3</h1>
+<h1>Ranking: Top 3 to 5</h1>
 
 <h3>
-    <i class="fa-solid fa-star mr-1"></i> The Biggest Magnitude
+    <i class="fa-solid fa-star mr-1"></i>The Biggest Magnitude
 </h3>
 {% with rows = mag_rows %}
 {% include 'earthquake_table.html' %}
 {% endwith %}
 
 <h3>
-    <i class="fa-solid fa-star mr-1"></i> The Deepest Epicentre
+    <i class="fa-solid fa-star mr-1"></i>The Deepest Epicentre
 </h3>
 {% with rows = depth_rows %}
 {% include 'earthquake_table.html' %}
 {% endwith %}
 
 <h3>
-    <i class="fa-solid fa-star mr-1"></i> The Countries With The Most Earthquakes
+    <i class="fa-solid fa-star mr-1"></i>The Countries With The Most Earthquakes
 </h3>
 <table class="table align-middle my-3">
     <thead class="table-header">
