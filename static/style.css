@@ -3,11 +3,21 @@ body {
     background-color: darkcyan;
     margin: 0 auto;
     color: lightcyan;
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+    margin: 4rem 0;
 }
 
 a {
     color: inherit;
     decoration: none;
+}
+
+th {
+    text-align:center;
 }
 
 .container {
@@ -20,7 +30,7 @@ a {
     color: darkcyan;
     text-align: center;
     padding: 2rem 0;
-    background-color: white;
+    background-color: #fefffe;
     border-radius: 0 0 15px 15px;
     margin-bottom: 2rem;
 }
@@ -30,7 +40,22 @@ a {
     color: lightcyan;
     letter-spacing: 1px;
 }
+.nav-item:hover {
+    font-weight: 600;
+    color: darkcyan;
+}
 
 .nav-tabs-border-color {
     color: lightcyan;
+}
+
+.table {
+    color: #666666;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.table-header {
+    color: darkcyan;
+    text-align: center;
 }

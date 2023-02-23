@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 {% block page_content %}
-<h1>all</h1>
-{% for row in rows %}
-<p>
-    <b>{{row["time"]}}</b> |
-    {{row["latitude"]}} |
-    {{row["longitude"]}} |
-    {{row['depth']}} |
-    {{row["mag"]}} |
-    {{row["magType"]}} |
-    {{row['place']}} |
-    {{row['type']}} |
-    {{row['status']}} |
-    {{row['name']}}
-    <br/>
-</p>
-{% endfor %}
+<h1>All Data</h1>
+<table class="table align-middle">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">time</th>
+        <th scope="col">Depth</th>
+        <th scope="col">Magnitude</th>
+        <th scope="col">Magnitude Type</th>
+        <th scope="col">Place</th>
+        <th scope="col">Source</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td>{{row["time"]}}</td>
+        <td>{{row['depth']}}</td>
+        <td>{{row['mag']}}</td>
+        <td>{{row['magType']}}</td>
+        <td>{{row['place']}}</td>
+        <td>{{row['name']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
