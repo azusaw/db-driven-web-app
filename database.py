@@ -21,6 +21,8 @@ class Database:
             where += ("e.net = '" + conditions["source"] + "' AND ") if conditions["source"] else ''
             where += ("e.mag >= '" + conditions["min-mag"] + "' AND ") if conditions["min-mag"] else ''
             where += ("e.mag <= '" + conditions["max-mag"] + "' AND ") if conditions["max-mag"] else ''
+            where += ("e.depth >= '" + conditions["min-depth"] + "' AND ") if conditions["min-depth"] else ''
+            where += ("e.depth <= '" + conditions["max-depth"] + "' AND ") if conditions["max-depth"] else ''
             where += ("e.magType = '" + conditions["mag-type"] + "' AND ") if conditions["mag-type"] else ''
 
             # Remove unnecessary "AND " at the tail

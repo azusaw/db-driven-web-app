@@ -45,14 +45,34 @@
         </select>
     </div>
     <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-5">
+                <label for="min-depth">Min Depth</label>
+                <select id="min-depth" name="min-depth" class="form-control">
+                    {% for i in range(0,7) %}
+                    <option value={{i*100}}>{{i*100}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-5">
+                <label for="max-depth">Max Depth</label>
+                <select id="max-depth" name="max-depth" class="form-control">
+                    {% for i in range(1,8) %}
+                    <option value={{(8-i)*100}}>{{(8-i)*100}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
     </div>
     <div class="col-sm-6">
         <label for="order">Order By</label>
         <select id="order" name="order" class="form-control">
-            <option value='time asc'>Datetime Asc</option>
-            <option value='time desc'>Datetime Desc</option>
-            <option value='mag asc'>Magnitude Asc</option>
-            <option value='mag desc'>Magnitude Desc</option>
+            <option value='time asc'>Datetime - Asc</option>
+            <option value='time desc'>Datetime - Desc</option>
+            <option value='mag asc'>Magnitude - Asc</option>
+            <option value='mag desc'>Magnitude - Desc</option>
+            <option value='depth asc'>Depth - Asc</option>
+            <option value='depth desc'>Depth - Desc</option>
         </select>
     </div>
     <div class="align-center">
