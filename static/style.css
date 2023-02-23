@@ -63,3 +63,12 @@ th {
 .bold {
     font-weight: 600;
 }
+
+.btn {
+    width: 500px;
+}
+
+.align-center {
+    text-align: center;
+}
+

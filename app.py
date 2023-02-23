@@ -23,9 +23,10 @@ def all():
 def search():
     rows = ""
     sources = db.select_sources()
+    mag_types = db.select_mag_types()
     if request.method == "POST":
         rows = db.select(request.form.to_dict(flat=True))
-    return render_template("search.html", rows=rows, sources=sources)
+    return render_template("search.html", rows=rows, sources=sources, mag_types=mag_types)
 
 
 if __name__ == "__main__":

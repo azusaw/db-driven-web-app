@@ -14,13 +14,16 @@ class Database:
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
 
-        # Create where clause
+        # Create WHERE clause
         if conditions:
             where = "WHERE 1 AND "
             where += ("e.place LIKE '%" + conditions["location"] + "%' AND ") if conditions["location"] else ''
             where += ("e.net = '" + conditions["source"] + "' AND ") if conditions["source"] else ''
+            where += ("e.mag >= '" + conditions["min-mag"] + "' AND ") if conditions["min-mag"] else ''
+            where += ("e.mag <= '" + conditions["max-mag"] + "' AND ") if conditions["max-mag"] else ''
+            where += ("e.magType = '" + conditions["mag-type"] + "' AND ") if conditions["mag-type"] else ''
 
-            # Remove unnecessary 'AND' at the tail
+            # Remove unnecessary "AND " at the tail
             where = where.removesuffix("AND ")
 
         cur.execute(
@@ -52,5 +55,14 @@ class Database:
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
         cur.execute("SELECT id, name FROM sources")
+
+        return cur.fetchall()
+
+    # Execute SELECT query to magnitude_types table
+    def select_mag_types(self):
+        conn = sqlite3.connect(self.dbname)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        cur.execute("SELECT id, mag_range, distance_range, equation, comments FROM magnitude_types")
 
         return cur.fetchall()

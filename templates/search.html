@@ -8,15 +8,44 @@
     </div>
     <div class="col-sm-6">
         <label for="source">Source</label>
-        <select id="source" name="source" class="form-control" aria-label="Source">
+        <select id="source" name="source" class="form-control">
             <option value=''>All</option>
             {% for source in sources %}
             <option value={{source.id}}>{{source.name}}</option>
             {% endfor %}
         </select>
     </div>
+    <div class="col-sm-6 my-2">
+        <div class="row">
+            <div class="col-sm-5 my-2">
+                <label for="min-mag">Min Magnitude</label>
+                <select id="min-mag" name="min-mag" class="form-control">
+                    {% for i in range(0,8) %}
+                    <option value={{i}}>{{i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-5 my-2">
+                <label for="max-mag">Max Magnitude</label>
+                <select id="max-mag" name="max-mag" class="form-control">
+                    {% for i in range(1,9) %}
+                    <option value={{9-i}}>{{9-i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="mag-type">Magnitude Type</label>
+        <select id="mag-type" name="mag-type" class="form-control">
+            <option value=''>All</option>
+            {% for type in mag_types %}
+            <option value={{type.id}}>{{type.id}}</option>
+            {% endfor %}
+        </select>
+    </div>
     <div class="align-center">
-        <input type="submit" class="btn btn-lg btn-warning my-4" value="Search">
+        <input type="submit" class="btn btn-lg btn-warning my-2" value="Search">
     </div>
 </form>
 {% if rows %}
