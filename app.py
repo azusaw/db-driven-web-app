@@ -29,6 +29,11 @@ def search():
     return render_template("search.html", rows=rows, sources=sources, mag_types=mag_types)
 
 
+@app.route("/ranking")
+def ranking():
+    return render_template("ranking.html")
+
+
 @app.route('/magnitude_type')
 def magnitude_type():
     rows = db.select_mag_types()
