@@ -41,7 +41,8 @@ class Database:
         # Convert to dict type because Sqlite3 Row type does not allow values update
         rows = [dict(row) for row in cur]
 
-        return map(self.cleansing_data, rows)
+        # return records and the number of record
+        return map(self.cleansing_data, rows), len(rows)
 
     # Execute SELECT query to get TOP3 biggest magnitude
     def select_mag_top3(self):

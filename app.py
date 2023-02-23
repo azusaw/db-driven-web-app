@@ -15,18 +15,19 @@ def home():
 
 @app.route("/all")
 def all():
-    rows = db.select()
-    return render_template("all.html", rows=rows)
+    rows, cnt = db.select()
+    return render_template("all.html", rows=rows, cnt=cnt)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     rows = ""
+    cnt = 0
     sources = db.select_sources()
     mag_types = db.select_mag_types()
     if request.method == "POST":
-        rows = db.select(request.form.to_dict(flat=True))
-    return render_template("search.html", rows=rows, sources=sources, mag_types=mag_types)
+        rows, cnt = db.select(request.form.to_dict(flat=True))
+    return render_template("search.html", rows=rows, cnt=cnt, sources=sources, mag_types=mag_types)
 
 
 @app.route("/ranking")
