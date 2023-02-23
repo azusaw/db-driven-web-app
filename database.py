@@ -10,6 +10,7 @@ class Database:
     # Execute SELECT query with given conditions
     def select(self, conditions={}):
         where = ""
+        order_by = ""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -29,18 +30,63 @@ class Database:
             where = where.removesuffix("AND ")
 
             # Create ORDER BY clause
-            where += (" ORDER BY " + conditions["order"]) if conditions["order"] else ''
+            order_by = (" ORDER BY " + conditions["order"]) if conditions["order"] else ''
 
         cur.execute(
             "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +
             "FROM earthquakes e LEFT JOIN sources s on e.net = s.id "
-            + where
+            + where + order_by
         )
 
         # Convert to dict type because Sqlite3 Row type does not allow values update
         rows = [dict(row) for row in cur]
 
         return map(self.cleansing_data, rows)
+
+    # Execute SELECT query to get TOP3 biggest magnitude
+    def select_mag_top3(self):
+        conn = sqlite3.connect(self.dbname)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+
+        cur.execute(
+            "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +
+            "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.mag DESC LIMIT 3"
+        )
+
+        # Convert to dict type because Sqlite3 Row type does not allow values update
+        rows = [dict(row) for row in cur]
+
+        return map(self.cleansing_data, rows)
+
+    # Execute SELECT query to get TOP3 deepest
+    def select_depth_top3(self):
+        conn = sqlite3.connect(self.dbname)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+
+        cur.execute(
+            "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +
+            "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.depth DESC LIMIT 3"
+        )
+
+        # Convert to dict type because Sqlite3 Row type does not allow values update
+        rows = [dict(row) for row in cur]
+
+        return map(self.cleansing_data, rows)
+
+    # Execute SELECT query to get TOP3 country
+    def select_country_top3(self):
+        conn = sqlite3.connect(self.dbname)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+
+        cur.execute(
+            "SELECT ROW_NUMBER() OVER(ORDER BY  COUNT(*) DESC) rank, country, COUNT(*) as count " +
+            "FROM earthquakes e GROUP BY e.country ORDER BY COUNT(*) DESC LIMIT 3"
+        )
+
+        return cur.fetchall()
 
     # Clean original opensource data to make easy to understand
     @staticmethod

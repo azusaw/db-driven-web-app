@@ -4,11 +4,17 @@ body {
     margin: 0 auto;
     color: lightcyan;
     font-size: 16px;
+    padding-bottom: 3rem;
 }
 
 h1 {
     text-align: center;
     margin: 4rem 0;
+}
+
+h3 {
+    text-align: center;
+    margin: 4rem 0 3rem;
 }
 
 a {

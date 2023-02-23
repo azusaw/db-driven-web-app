@@ -1,4 +1,41 @@
 {% extends 'base.html' %}
 {% block page_content %}
-<h1>Ranking</h1>
+<h1>Ranking: Top 3</h1>
+
+<h3>
+    <i class="fa-solid fa-star mr-1"></i> The Biggest Magnitude
+</h3>
+{% with rows = mag_rows %}
+{% include 'earthquake_table.html' %}
+{% endwith %}
+
+<h3>
+    <i class="fa-solid fa-star mr-1"></i> The Deepest
+</h3>
+{% with rows = depth_rows %}
+{% include 'earthquake_table.html' %}
+{% endwith %}
+<h3>
+
+    <i class="fa-solid fa-star mr-1"></i> The Country
+</h3>
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Country</th>
+        <th scope="col">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in country_rows %}
+    <tr>
+        <td class="bold">{{row["rank"]}}</td>
+        <td class="bold">{{row["country"]}}</td>
+        <td>{{row['count']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}
