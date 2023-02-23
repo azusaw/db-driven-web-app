@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
 <h1>All Earthquake Data</h1>
-{% with rows = rows %}
+{% with rows = rows, show_mag_type = true %}
 {% include 'earthquake_table.html' %}
 {% endwith %}
 {% endblock %}

@@ -85,7 +85,7 @@
     </div>
 </form>
 {% if rows %}
-{% with rows = rows %}
+{% with rows = rows, show_mag_type = true %}
 {% include 'earthquake_table.html' %}
 {% endwith %}
 {% endif %}
