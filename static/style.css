@@ -10,11 +10,17 @@ body {
 h1 {
     text-align: center;
     margin: 4rem 0;
+    line-height: 4.5rem;
 }
 
 h3 {
     text-align: center;
     margin: 5rem 0 3rem;
+}
+
+p {
+    padding: 1rem 0;
+    line-height: 2.8rem;
 }
 
 a {
@@ -28,6 +34,14 @@ a:hover, a:visited {
 
 th {
     text-align:center;
+}
+
+img {
+    margin: 2rem 0;
+}
+
+iframe {
+    margin: 3rem 0;
 }
 
 .container {
