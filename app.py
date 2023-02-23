@@ -44,5 +44,10 @@ def magnitude_type():
     return render_template("magnitude_type_page.html", rows=rows)
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404_page.html'), 404
+
+
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
