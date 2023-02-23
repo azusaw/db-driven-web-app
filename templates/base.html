@@ -1,11 +1,25 @@
-{% extends 'bootstrap/base.html' %}
-<html>
-<head>
-    <title>EarthQuakes on February 2023</title>
-    <meta charset="utf-8">
-</head>
-<body>
-{% block content %}
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+   <title>EarthQuakes on February 2023</title>
 {% endblock %}
-</body>
-</html>
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
+{% block navbar %}
+    <div class="container">
+        <a href={{ url_for("all") }}>all</a>
+        <a href={{ url_for("search") }}>search</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% block page_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

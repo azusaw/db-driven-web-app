@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-{% block content %}
+{% block page_content %}
 <h1>Search</h1>
-<form action="/search" method="post">
-    <label for="location">Location</label>
-    <input type="text" id="location" name="location">
-    <input type="submit">
+<form action="/search" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" placeholder="Japan / Turkey / Alaska ...">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Search">
 </form>
 {% for row in rows %}
 <p>
