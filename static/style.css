@@ -1,8 +1,36 @@
 body {
-    background-color: lavender;
+    font-family: 'Quicksand', sans-serif;
+    background-color: darkcyan;
     margin: 0 auto;
+    color: lightcyan;
+}
+
+a {
+    color: inherit;
+    decoration: none;
 }
 
 .container {
     max-width: 800px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: darkcyan;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: white;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    font-size: 18px;
+    color: lightcyan;
+    letter-spacing: 1px;
+}
+
+.nav-tabs-border-color {
+    color: lightcyan;
 }

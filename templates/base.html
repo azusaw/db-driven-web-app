@@ -2,19 +2,31 @@
 
 {% block head %}
     {{ super() }}
-   <title>EarthQuakes on February 2023</title>
+   <title>Earthquakes in the world on Feb 2023</title>
 {% endblock %}
 
 {% block styles %}
     {{super()}}
     <link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block navbar %}
     <div class="container">
-        <a href={{ url_for("home") }}>home</a>
-        <a href={{ url_for("all") }}>all</a>
-        <a href={{ url_for("search") }}>search</a>
+        <div class="title">Earthquakes in the world 🌎 Feb 2023</div>
+        <ul class="nav nav-tabs nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href={{ url_for("home") }}>home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={{ url_for("all") }}>all data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={{ url_for("search") }}>search</a>
+          </li>
+        </ul>
     </div>
 {% endblock %}
 
