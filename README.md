@@ -3,7 +3,7 @@
 Earthquakes occur all over the world everyday.
 
 Recently, a huge earthquake occurred in Turkey.
-I was born in Japan, where earthquakes occur frequently, often two or three times a week. I was shocked by this news, as I had lived a life without earthquakes since I left Japan.
+I was born in Japan, where earthquakes occur frequently, often two or three times a week. I was shocked by this news, as I had lived without earthquakes since I left Japan.
 
 The reason why I chose this data for the development of data-driven web app was because I wanted to find out how often and in which regions of the world earthquakes occur. And I want to warn people who have never experienced an earthquake that this disaster could happen at any moment.
 
