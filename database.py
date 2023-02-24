@@ -52,8 +52,8 @@ class Database:
         # return records and the number of record
         return map(self.cleansing_data, rows), len(rows)
 
-    # Execute SELECT query to get TOP3 biggest magnitude
-    def select_mag_top3(self):
+    # Execute SELECT query to get TOP5 biggest magnitude
+    def select_mag_top5(self):
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -61,7 +61,7 @@ class Database:
         try:
             cur.execute(
                 "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +
-                "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.mag DESC LIMIT 3"
+                "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.mag DESC LIMIT 5"
             )
         except Exception as e:
             flash(f"ERROR: Failed to execute SQL - {e}", "error")
@@ -71,8 +71,8 @@ class Database:
 
         return map(self.cleansing_data, rows)
 
-    # Execute SELECT query to get TOP3 deepest
-    def select_depth_top3(self):
+    # Execute SELECT query to get TOP5 deepest
+    def select_depth_top5(self):
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -80,7 +80,7 @@ class Database:
         try:
             cur.execute(
                 "SELECT e.time, e.depth, e.mag, e.magType, e.place, s.name " +
-                "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.depth DESC LIMIT 3"
+                "FROM earthquakes e LEFT JOIN sources s on e.net = s.id ORDER BY e.depth DESC LIMIT 5"
             )
         except Exception as e:
             flash(f"ERROR: Failed to execute SQL - {e}", "error")

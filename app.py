@@ -35,8 +35,8 @@ def search():
 
 @app.route("/ranking")
 def ranking():
-    mag_rows = db.select_mag_top3()
-    depth_rows = db.select_depth_top3()
+    mag_rows = db.select_mag_top5()
+    depth_rows = db.select_depth_top5()
     country_rows = db.select_country_top5()
     return render_template("ranking_page.html", mag_rows=mag_rows, depth_rows=depth_rows, country_rows=country_rows)
 
