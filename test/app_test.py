@@ -90,6 +90,37 @@ def test_search_request():
     assert response.status_code == 200
 
 
+def test_cleansing_params_err():
+    """test Key error occur with lack of required element"""
+    db = Database()
+    test_data = {
+        'time': '2023-02-01T10:20:30.000Z',
+        'mag': 5.999,
+        'magType': 'md',
+        'place': '3km NW of Aberdeen, UK',
+        'name': 'University of Aberdeen'
+    }
+
+    with pytest.raises(RuntimeError):
+        db.cleansing_data(test_data)
+
+
+def test_cleansing_time_err():
+    """test Runtime error occur with invalid ISO format of time string"""
+    db = Database()
+    test_data = {
+        'time': '2023/02/01T10:20:30.000Z',
+        'depth': 15.999,
+        'mag': 5.999,
+        'magType': 'md',
+        'place': '3km NW of Aberdeen, UK',
+        'name': 'University of Aberdeen'
+    }
+
+    with pytest.raises(ValueError):
+        db.cleansing_data(test_data)
+
+
 def test_cleansing_data_round_number():
     """test round number of depth and magnitude: round minority second"""
     db = Database()
@@ -113,7 +144,7 @@ def test_cleansing_data_round_number():
     assert db.cleansing_data(test_data) == check_data
 
 
-def test_cleansing_data_round_number2():
+def test_cleansing_data_round_number_2():
     """test round number of depth and magnitude: increase in digit"""
     db = Database()
     test_data = {
@@ -134,3 +165,20 @@ def test_cleansing_data_round_number2():
     }
 
     assert db.cleansing_data(test_data) == check_data
+
+
+def test_select_with_condition_error():
+    """test Runtime error occur with lack of condition"""
+    db = Database()
+    test_data = {
+        'hoge': 'UK',
+        'source': 'us',
+        'min-mag': '1',
+        'max-mag': '6',
+        'min-depth': '1',
+        'max-depth': '6',
+        'magType': 'md',
+    }
+
+    with pytest.raises(RuntimeError):
+        db.select(test_data)

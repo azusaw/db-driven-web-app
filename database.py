@@ -138,11 +138,15 @@ class Database:
         try:
             # Remove 'Z' which causes the ISO date format conversion error
             d = datetime.datetime.fromisoformat(row["time"].replace('Z', ''))
-        except Exception as e:
+        except RuntimeError as e:
             flash(f"ERROR: Failed to convert ISO time - {e}", "error")
 
-        row["time"] = d.strftime('%d/%m/%Y %H:%M:%S')
-        row["depth"] = format(float(row["depth"]), '.2f')
-        row["mag"] = format(float(row["mag"]), '.2f')
+        try:
+            # Set cleaned value to a original object
+            row["time"] = d.strftime('%d/%m/%Y %H:%M:%S')
+            row["depth"] = format(float(row["depth"]), '.2f')
+            row["mag"] = format(float(row["mag"]), '.2f')
+        except Exception as e:
+            flash(f"ERROR: Failed to access value - {e}", "error")
 
         return row
