@@ -13,7 +13,7 @@ The following commands have already been installed.
 install dependencies
 
 ```
-pip install Flask gunicorn flask-bootstrap
+pip install Flask gunicorn flask-bootstrap pytest
 ```
 
 ## Start server
@@ -22,9 +22,16 @@ pip install Flask gunicorn flask-bootstrap
 python3 app.py
 ```
 
+## Run test
+
+```
+cd ./test
+python3 -m pytest
+```
+
 ## Deploy to Heroku
 
-create setting files
+create setting files for Heroku
 
 ```
 echo "web: gunicorn app:app --log-file=-" > Procfile
