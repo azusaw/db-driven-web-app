@@ -1,14 +1,40 @@
-# Earthquake information webapp
+# Earthquake information webapp 🌎
 
-## Prerequisites
+Earthquakes occur all over the world everyday.
 
-The following commands have already been installed.
+Recently, a huge earthquake occurred in Turkey.
+I was born in Japan, where earthquakes occur frequently, often two or three times a week. I was shocked by this news, as I had lived a life without earthquakes since I left Japan.
 
-* Python3
-* pip
-* Heroku CLI
+The reason why I chose this data for the development of data-driven web app was because I wanted to find out how often and in which regions of the world earthquakes occur. And I want to warn people who have never experienced an earthquake that this disaster could happen at any moment.
 
-## Directory structure
+Due to data size regulations, the earthquake data is limited to the period 1st to 19th February 2023. Data is taken from [USGS Earthquake Hazards Program.](https://earthquake.usgs.gov/earthquakes/feed/) which is open source.
+
+## URL
+It is hosting on `Heroku`.
+
+https://earthquake-info-app.herokuapp.com/
+
+## About project
+
+### Used frameworks, libraries and services
+
+* [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+     * Python web application framework, suitable for creating simple web applications for small.
+     
+* [Flask-Bootstrap](https://pythonhosted.org/Flask-Bootstrap/)
+     * A front-end web application framework for creating websites and web applications which provides parts such as buttons to help UI implementation.
+     
+* [pytest](https://docs.pytest.org/en/7.2.x/)
+     * A python testing framework primarily to support unit testing. It enables efficient creation and execution of tests.
+     
+* [Font Awesome](https://fontawesome.com/)
+     * Popular icon toolkit; can be used by loading CDNs.
+     
+* [Heroku](https://dashboard.heroku.com/apps)
+     * Paas cloud service to help develop and publish applications.
+     * The integration between Heroku and Github is already set up, so a push to the main branch of this repogitory is triggered and deployed automatically.
+
+### Directory structure
 
 ```
 data-driven-web-app
@@ -46,7 +72,19 @@ data-driven-web-app
 
 ```
 
-## Setup
+## For setup
+
+### Prerequisites
+
+The following commands have already been installed.
+
+* Python3
+* pip
+* sqlite3
+* Heroku CLI
+
+
+### Setup guide
 
 Install dependencies using `pip`.
 
@@ -54,15 +92,11 @@ Install dependencies using `pip`.
 pip install Flask gunicorn flask-bootstrap pytest
 ```
 
-## Start application
-
 Start python application with this command.
 
 ```commandline
 python3 app.py
 ```
-
-## Run test
 
 Run `pytest` to ensure that the application works.
 
@@ -71,10 +105,14 @@ cd ./test
 python3 -m pytest
 ```
 
-## Deploy to Heroku
+---
 
-Create setting files for `Heroku`. <br/>
-`Requirement.txt` must be re-created each time new library is installed by pip.
+### Deploy to Heroku
+
+Create setting files for `Heroku`.
+`Requirement.txt` must be re-created each time new library is installed by pip. 
+
+The integration between Heroku and Github is already set up, so a push to the main branch of this repogitory is triggered and deployed automatically.
 
 ```commandline
 echo "web: gunicorn app:app --log-file=-" > Procfile
@@ -82,7 +120,7 @@ echo "web: gunicorn app:app --log-file=-" > Procfile
 python3 -m pip freeze > requirements.txt
 ```
 
-## Restore earthquaked database
+### Restore earthquaked database
 
 If data is lost or the database is corrupted, execute sqlite command with `earthquakes.db` to restore the database.
 
