@@ -10,7 +10,7 @@ The reason why I chose this data for the development of data-driven web app was 
 Due to data size regulations, the earthquake data is limited to the period 1st to 19th February 2023. Data is taken from [USGS Earthquake Hazards Program.](https://earthquake.usgs.gov/earthquakes/feed/) which is open source.
 
 ## Heroku URL
-It is hosting on `Heroku`.
+This webapp is hosting on `Heroku`.
 
 https://earthquake-info-app.herokuapp.com/
 
@@ -68,7 +68,7 @@ data-driven-web-app
      ├─ ranking_page.html - for /ranking
      ├─ search_page.html  - for /search
      ├─ magnitude_type_page.html - for /magnitude_type
-     └─ earthquake_table.html - table component 
+     └─ earthquake_table.html - table template 
 
 ```
 
