@@ -7,7 +7,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap(app)
 db = database.Database()
 
-# For flash method requirement
+# For flash requirement
 app.secret_key = 'the random string'
 
 

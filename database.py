@@ -8,8 +8,8 @@ class Database:
     def __init__(self):
         self.dbname = "./data/earthquake_data.db"
 
-    # Execute SELECT query with given conditions
     def select(self, conditions={}):
+        """Execute SELECT query with given conditions"""
         where = ""
         order_by = ""
         conn = sqlite3.connect(self.dbname)
@@ -52,8 +52,9 @@ class Database:
         # return records and the number of record
         return map(self.cleansing_data, rows), len(rows)
 
-    # Execute SELECT query to get TOP5 biggest magnitude
+    #
     def select_mag_top5(self):
+        """Execute SELECT query to get TOP5 biggest magnitude"""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -71,8 +72,8 @@ class Database:
 
         return map(self.cleansing_data, rows)
 
-    # Execute SELECT query to get TOP5 deepest
     def select_depth_top5(self):
+        """Execute SELECT query to get TOP5 deepest"""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -90,8 +91,8 @@ class Database:
 
         return map(self.cleansing_data, rows)
 
-    # Execute SELECT query to get TOP3 country
     def select_country_top5(self):
+        """Execute SELECT query to get TOP3 country"""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -106,8 +107,8 @@ class Database:
 
         return cur.fetchall()
 
-    # Execute SELECT query to sources table
     def select_sources(self):
+        """Execute SELECT query to sources table"""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -119,8 +120,8 @@ class Database:
 
         return cur.fetchall()
 
-    # Execute SELECT query to magnitude_types table
     def select_mag_types(self):
+        """Execute SELECT query to magnitude_types table"""
         conn = sqlite3.connect(self.dbname)
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
@@ -132,9 +133,9 @@ class Database:
 
         return cur.fetchall()
 
-    # Clean original opensource data to make easy to understand
     @staticmethod
     def cleansing_data(row):
+        """Clean original opensource data to make easy to understand"""
         try:
             # Remove 'Z' which causes the ISO date format conversion error
             d = datetime.datetime.fromisoformat(row["time"].replace('Z', ''))
