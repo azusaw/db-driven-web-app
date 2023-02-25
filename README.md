@@ -96,6 +96,9 @@ Start python application with this command.
 
 ```commandline
 python3 app.py
+
+# In codio
+python3 -m flask run -h 0.0.0.0
 ```
 
 Run `pytest` to ensure that the application works.
@@ -128,3 +131,5 @@ If data is lost or the database is corrupted, execute sqlite command with `earth
 cd ./data
 sqlite3 earthquake_data.db < ./backup/earthquakes.sql
 ```
+### ⚠️ Attention
+Please check the Python verssion is greater than `v3.9` because `fromisoformat` is not available in older than `3.7` and `removesuffix` is not available in older than `3.9`.
