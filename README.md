@@ -78,7 +78,7 @@ data-driven-web-app
 
 The following commands have already been installed.
 
-* Python3
+* Python3 (with greather v.3.9)
 * pip
 * sqlite3
 * Heroku CLI
@@ -132,4 +132,4 @@ cd ./data
 sqlite3 earthquake_data.db < ./backup/earthquakes.sql
 ```
 ### ⚠️ Attention
-Please check the Python verssion is greater than `v3.9` because `fromisoformat` is not available in older than `3.7` and `removesuffix` is not available in older than `3.9`.
+Please check the Python verssion is greater than `v3.9` because `fromisoformat` is not available in older than `v3.7` and `removesuffix` is not available in older than `v3.9`.
