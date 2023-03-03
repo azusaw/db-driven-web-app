@@ -89,7 +89,7 @@ The following commands have already been installed.
 Install dependencies using `pip`.
 
 ```commandline
-pip install Flask gunicorn flask-bootstrap pytest
+pip install -r requirements.txt
 ```
 
 Start python application with this command.
