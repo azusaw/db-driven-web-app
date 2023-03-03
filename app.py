@@ -54,6 +54,6 @@ def page_not_found(error):
 
 if __name__ == "__main__":
     try:
-        app.run(port=8000, debug=True)
+        app.run(port=5000, debug=True)
     except Exception as e:
         flash(f"ERROR: Unexpected error - {e}", "error")

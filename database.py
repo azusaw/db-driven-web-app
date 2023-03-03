@@ -99,7 +99,7 @@ class Database:
 
         try:
             cur.execute(
-                "SELECT ROW_NUMBER() OVER(ORDER BY  COUNT(*) DESC) rank, country, COUNT(*) as count " +
+                "SELECT country, COUNT(*) as count " +
                 "FROM earthquakes e GROUP BY e.country ORDER BY COUNT(*) DESC LIMIT 5"
             )
         except Exception as e:

@@ -30,7 +30,7 @@
     <tbody>
     {% for row in country_rows %}
     <tr>
-        <td class="bold">{{row["rank"]}}</td>
+        <td class="bold">{{loop.index}}</td>
         <td class="bold">{{row["country"]}}</td>
         <td>{{row['count']}}</td>
     </tr>
